@@ -40,45 +40,47 @@ _game()_
 
 ## Pseudo Code
 
+```
 Call game()
 
 game():
-LOOP for gameCount <= 5
-Ask for user choice and store as all CAPS
-Call computerPlay() and store as all CAPS
-Call playRound() and store return string
-Call checkWinner() and store return int in gameOption
-Check gameOption and increment winner count
-increment gameCount
-END LOOP
-Call endGameResults()
+	LOOP for gameCount <= 5
+		Ask for user choice and store as all CAPS
+		Call computerPlay() and store as all CAPS
+		Call playRound() and store return string
+		Call checkWinner() and store return int in gameOption
+		Check gameOption and increment winner count
+		increment gameCount
+	END LOOP
+	Call endGameResults()
 
 playRound():
-Compare choices
-return string of player win or loose
+	Compare choices
+	return string of player win or loose
 
 checkWinner(winner):
-Compare winner and return number
-1 for player win
-2 for comp win
-3 for tie
+	Compare winner and return number
+		1 for player win
+		2 for comp win
+		3 for tie
 
 computerPlay():
-Randomly generate number from 1 to 3
-1 is Rock
-2 is Paper
-3 is Scissors
-return string
+	Randomly generate number from 1 to 3
+		1 is Rock
+		2 is Paper
+		3 is Scissors
+	return string
 
 endGameResults():
-Check if player won
-Check if comp won
-Or check if it is a tie
+	Check if player won
+	Check if comp won
+	Or check if it is a tie
+```
 
 ## PRODUCT
 
 <p align="center">
 
-![grab-landing-page](https://github.com/Wolf4992/Project-Compost/blob/main/readmeAssets/Compcash%20Homepage.gif)
+![grab-landing-page](https://github.com/MithraPerera/RPS-Game/blob/main/READMEAssets/RPS-CLI-Demo.gif)
 
 </p>
