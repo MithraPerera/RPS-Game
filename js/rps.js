@@ -3,16 +3,14 @@ function computerPlay() {
      let compChoice = "";
 
      //choose a random number between 1 and 3
-     let choicePercent = Math.floor((Math.random() * 3) + 1)
-     console.log(choicePercent);
+     let choicePercent = Math.floor((Math.random() * 3) + 1);
      if (choicePercent == 1) {
-          compChoice = "Rock";
+          compChoice = "ROCK";
      } else if (choicePercent == 2) {
-          compChoice = "Paper";
+          compChoice = "PAPER";
      } else {
-          compChoice = "Scissors";
+          compChoice = "SCISSORS";
      }
-     console.log(compChoice);
 }
 
 //Play 1 round of RPS and return a winning or loosing string
@@ -55,15 +53,34 @@ function playRound(playerSelection, computerSelection) {
 
 }
 
-function checkWinner() {
+function checkWinner(roundResult) {
+     playerResult = roundResult.slice(0, 8);
+     console.log(playerResult);
+     if (playerResult == "You Win!") {
+          return 1;
+     } else if (playerResult == "You Lose") {
+          return 2;
+     } else {
+          return 3;
+     }
 
 }
 
 //Start a full 5 round game of RPS
 function game() {
      console.log("Welcome to Rock, Paper Scissors!");
-     let playerSelection = prompt("Please type Rock, Paper or Scissors:").toUpperCase();
-     console.log(playerSelection);
+     let playerWinCount = 0;
+     let tieGameCount = 0;
+     for(let i=0; i <= 5; i++) {
+          //get selections
+          let playerSelection = prompt("Please type Rock, Paper or Scissors:").toUpperCase();
+          let computerSelection = computerPlay();
+          //store player win or loose string 
+          let roundResult = playRound(playerSelection, computerSelection);
+          //check string and return an int to indicate win loose or tie
+          let gameOption = checkWinner(roundResult);
+          
+     }
 }
 
 game();
