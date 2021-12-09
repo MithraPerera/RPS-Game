@@ -11,6 +11,7 @@ function computerPlay() {
      } else {
           compChoice = "SCISSORS";
      }
+     return compChoice;
 }
 
 //Play 1 round of RPS and return a winning or loosing string
@@ -53,6 +54,7 @@ function playRound(playerSelection, computerSelection) {
 
 }
 
+//check who won the round and return the winner
 function checkWinner(roundResult) {
      playerResult = roundResult.slice(0, 8);
      console.log(playerResult);
@@ -66,22 +68,48 @@ function checkWinner(roundResult) {
 
 }
 
+//Helper function to check 5 game winner and display results to console
+function endGameResults(playerWinCount, tieGameCount) {
+     //check player win count to comp win count
+     if (playerWinCount > (5 - tieGameCount - playerWinCount)) {
+          console.log("Congrats! You won the best of 5!");
+     } else if (playerWinCount < (5 - tieGameCount - playerWinCount)) {
+          console.log("Sorry! The computer wins the best of 5!");
+     } else {
+          console.log("Wow its a best of 5 tie!");
+     }
+}
+
 //Start a full 5 round game of RPS
 function game() {
      console.log("Welcome to Rock, Paper Scissors!");
      let playerWinCount = 0;
      let tieGameCount = 0;
-     for(let i=0; i <= 5; i++) {
+     for(let i=0; i < 5; i++) {
           //get selections
           let playerSelection = prompt("Please type Rock, Paper or Scissors:").toUpperCase();
+          console.log("Player chooses: " + playerSelection);
           let computerSelection = computerPlay();
+          console.log("Computer chooses: " + computerSelection);
           //store player win or loose string 
           let roundResult = playRound(playerSelection, computerSelection);
           //check string and return an int to indicate win loose or tie
           let gameOption = checkWinner(roundResult);
-          
+          //Increment player win count
+          if (gameOption == 1) {
+               playerWinCount++;
+          }
+          else if (gameOption == 2) {
+               
+          } else {
+               tieGameCount++;
+          }
      }
+     //Display 5 round results passing the player win count and tie count
+     endGameResults(playerWinCount, tieGameCount);
+     
 }
 
+//Call game function to start the program
 game();
 
