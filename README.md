@@ -1,4 +1,4 @@
-# Rock Paper Scissors - Browser Console Version
+# Rock Paper Scissors Web App
 
 ## PROBLEM
 

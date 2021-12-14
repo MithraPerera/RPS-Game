@@ -1,0 +1,71 @@
+@font-face {
+	font-family: casino3DMarquee;
+	src: url("/fonts/Casino3DMarqueeRegular-d9A2V.ttf");
+}
+body {
+	margin: 0;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-content: center;
+	background-color: grey;
+}
+
+.title {
+	font-family: Bungee;
+	font-style: normal;
+	font-weight: normal;
+	margin: 0;
+	color: white;
+	text-align: center;
+}
+
+#game-title {
+	font-size: 72px;
+	background-color: #03022a;
+}
+
+.game-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+	background-image: url("/img/casino-background.png");
+	background-size: cover;
+}
+
+.casino-style {
+	font-family: "casino3DMarquee";
+	font-style: normal;
+	font-weight: normal;
+	font-size: 48px;
+	margin: 0;
+	color: #f5c211;
+	text-align: center;
+}
+
+.score-container {
+	display: flex;
+	justify-content: space-around;
+	gap: 50px;
+}
+
+.choice-container {
+	border: #ffffff;
+	border-style: solid;
+	height: 100px;
+	width: 500px;
+}
+
+.buttons-container {
+	display: flex;
+}
+
+.footer {
+	background-color: #a11163;
+	display: flex;
+	justify-content: center;
+	padding: 10px;
+}

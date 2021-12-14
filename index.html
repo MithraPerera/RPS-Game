@@ -1,12 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rock Paper Scissors Game</title>
-  </head>
-  <body>
-    <script type="text/javascript" src="js/rps.js"></script>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Rock Paper Scissors Game</title>
+		<link rel="stylesheet" href="styles.css" />
+		<script type="text/javascript" src="js/rps.js"></script>
+	</head>
+	<body>
+		<div class="header">
+			<h1 class="title" id="game-title">Rock, Paper, Scissors</h1>
+		</div>
+		<div class="game-container">
+			<h1 class="casino-style">💰 Jackpot: 1,000,000,000 💰</h1>
+			<h2 class="title">Win 5 in a row to hit the jackpot!</h2>
+			<div class="score-container">
+				<div class="choice-container">
+					<h2 class="casino-style">🤑 Player : 0</h2>
+				</div>
+				<div class="choice-container">
+					<h2 class="casino-style">🤖 Computer : 0</h2>
+				</div>
+			</div>
+			<div class="choice-container">
+				<p>You Win!</p>
+			</div>
+			<div class="buttons-container">
+				<div class="button">
+					<img src="/img/rock_button.png" />
+				</div>
+				<div class="button">
+					<img src="/img/paper_button.svg" />
+				</div>
+				<div class="button">
+					<img src="/img/scissors_button.png" />
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<img src="/img/github_icon.png" />
+			<p class="title">Made by Mithra Perera</p>
+		</div>
+	</body>
 </html>
