@@ -7,40 +7,48 @@
 		<title>Rock Paper Scissors Game</title>
 		<link rel="stylesheet" href="styles.css" />
 		<script type="text/javascript" src="js/rps.js"></script>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+			rel="stylesheet"
+		/>
 	</head>
 	<body>
 		<div class="header">
 			<h1 class="title" id="game-title">Rock, Paper, Scissors</h1>
 		</div>
-		<div class="game-container">
-			<h1 class="casino-style">💰 Jackpot: 1,000,000,000 💰</h1>
-			<h2 class="title">Win 5 in a row to hit the jackpot!</h2>
-			<div class="score-container">
-				<div class="choice-container">
-					<h2 class="casino-style">🤑 Player : 0</h2>
+		<main>
+			<div class="game-container">
+				<h1 class="casino-style">💰 Jackpot: 1,000,000,000 💰</h1>
+				<h2 class="title">Win 5 in a row to hit the jackpot!</h2>
+				<div class="score-container">
+					<div class="choice-container">
+						<h2 class="casino-style">🤑 Player : 0</h2>
+					</div>
+					<div class="choice-container">
+						<h2 class="casino-style">🤖 Computer : 0</h2>
+					</div>
 				</div>
-				<div class="choice-container">
-					<h2 class="casino-style">🤖 Computer : 0</h2>
+				<div class="choice-container title" id="game-info">
+					<p>Welcome to rock, paper, scissors, JACKPOT!</p>
 				</div>
-			</div>
-			<div class="choice-container">
-				<p>You Win!</p>
-			</div>
-			<div class="buttons-container">
-				<div class="button">
-					<img src="/img/rock_button.png" />
-				</div>
-				<div class="button">
-					<img src="/img/paper_button.svg" />
-				</div>
-				<div class="button">
-					<img src="/img/scissors_button.png" />
+				<div class="buttons-container">
+					<img class="button" src="/img/rock_button.png" />
+					<img class="button" src="/img/paper_button.png" />
+					<img class="button" src="/img/scissors_button.png" />
 				</div>
 			</div>
-		</div>
-		<div class="footer">
+		</main>
+		<footer class="footer">
 			<img src="/img/github_icon.png" />
-			<p class="title">Made by Mithra Perera</p>
-		</div>
+			<p class="title">
+				Copyright ©
+				<script>
+					document.write(new Date().getFullYear());
+				</script>
+				Mithra Perera
+			</p>
+		</footer>
 	</body>
 </html>

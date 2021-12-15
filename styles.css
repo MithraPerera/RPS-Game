@@ -1,48 +1,74 @@
+:root {
+	--primary-light: #ddd;
+	--primary-dark: #03022a;
+	--secondary-light: #f5c211;
+	--secondary-light-hover: #f0db8f00;
+	--secondary-light-active: #ffc80000;
+	--footer: #a11163;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
 @font-face {
 	font-family: casino3DMarquee;
 	src: url("/fonts/Casino3DMarqueeRegular-d9A2V.ttf");
 }
+
 body {
-	margin: 0;
 	text-align: center;
+	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	align-content: center;
-	background-color: grey;
+	background-image: url("/img/casino-background.png");
+	background-size: cover;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
 }
 
+/* HEADER */
+
 .title {
-	font-family: Bungee;
+	font-family: "Press Start 2P", cursive;
 	font-style: normal;
 	font-weight: normal;
-	margin: 0;
-	color: white;
+	margin: 10px;
+	color: var(--primary-light);
 	text-align: center;
 }
 
 #game-title {
+	font-family: Bungee, sans-serif;
 	font-size: 72px;
-	background-color: #03022a;
+	background-color: var(--primary-dark);
+	text-shadow: 2px 2px var(--footer), -5px -5px var(--footer);
+	padding: 5px;
 }
+
+/* MAIN */
 
 .game-container {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	gap: 20px;
-	background-image: url("/img/casino-background.png");
-	background-size: cover;
+	gap: 10px;
+	align-self: center;
 }
 
 .casino-style {
-	font-family: "casino3DMarquee";
+	font-family: "casino3DMarquee", sans-serif;
 	font-style: normal;
 	font-weight: normal;
-	font-size: 48px;
+	font-size: 40px;
 	margin: 0;
-	color: #f5c211;
+	color: var(--secondary-light);
 	text-align: center;
 }
 
@@ -50,22 +76,61 @@ body {
 	display: flex;
 	justify-content: space-around;
 	gap: 50px;
+	margin: 20px;
 }
 
 .choice-container {
-	border: #ffffff;
+	border: var(--primary-light);
 	border-style: solid;
-	height: 100px;
-	width: 500px;
+	height: 200px;
+	width: 400px;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	border-radius: 15px;
+}
+
+#game-info {
+	height: 150px;
+	width: auto;
+	padding: 30px;
+	margin: 10px;
+	border-radius: 0px;
+	overflow-y: scroll;
+	font-size: 12px;
 }
 
 .buttons-container {
 	display: flex;
+	justify-content: space-between;
+	gap: 20px;
+	padding: 20px;
+	margin-top: 20px;
 }
 
+.button {
+	cursor: pointer;
+	height: 150px;
+	width: 150px;
+}
+
+.button:hover {
+	background-color: var(--secondary-light-hover);
+	border-radius: 50%;
+	padding: 10px;
+}
+
+.button:active {
+	background-color: var(--secondary-light-active);
+	transform: translateY(20px);
+}
+
+/* FOOTER */
+
 .footer {
-	background-color: #a11163;
+	background-color: var(--footer);
 	display: flex;
 	justify-content: center;
-	padding: 10px;
+	align-items: center;
+	padding: 5px;
 }
