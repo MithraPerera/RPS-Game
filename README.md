@@ -1,83 +1,28 @@
-# Rock Paper Scissors Web App
+# Rock Paper Scissors Website
 
 ## PROBLEM
 
 Goal is to create a Rock, Paper, Scissors game that runs in the browser console and allows the user to face the computer in a best of 5 and displays the winner.
 
-## PLAN
+## Features
 
-Starting with functions for the simplest problems:
+- Players click their choice
 
-_computerPlay()_
+- Information box shows if it was a Win, loose or tie
 
-- randomly return either ‘Rock’, ‘Paper’ or ‘Scissors’ as computers choice
+- Player and Computer box show how many games they have respectively won and the current rounds choices
 
-_playRound()_
+## Lessons Learned
 
-- plays a single round of Rock Paper Scissors
-- takes the player selection and computer selection as inputs and then declares the winner in a string at the end
-- return a string that declares the winner of the round like so: `"You Lose! Paper beats Rock"`
-- playerSelection parameter case-insensitive (so users can input `rock`, `ROCK`, `RocK` or any other variation).
+- DOM Manipulation
 
-Now for the helper functions:
+- Adding effects with media queries to buttons
 
-_checkWinner()_
+- how to create buttons out of images
 
-- helper function to check winner
+- How to lay out a page using flexbox
 
-_endGameResults()_
-
-- compare player win counts to comp win counts accounting for tie games
-- display winner in console
-
-Lastly, we connect it all together to run the game:
-
-_game()_
-
-- function calls the playRound() 5 times
-- starts a 5 round game that keeps score
-- calls endGameResults() to check and display 5 game winner
-
-## Pseudo Code
-
-```
-Call game()
-
-game():
-	LOOP for gameCount <= 5
-		Ask for user choice and store as all CAPS
-		Call computerPlay() and store as all CAPS
-		Call playRound() and store return string
-		Call checkWinner() and store return int in gameOption
-		Check gameOption and increment winner count
-		increment gameCount
-	END LOOP
-	Call endGameResults()
-
-playRound():
-	Compare choices
-	return string of player win or loose
-
-checkWinner(winner):
-	Compare winner and return number
-		1 for player win
-		2 for comp win
-		3 for tie
-
-computerPlay():
-	Randomly generate number from 1 to 3
-		1 is Rock
-		2 is Paper
-		3 is Scissors
-	return string
-
-endGameResults():
-	Check if player won
-	Check if comp won
-	Or check if it is a tie
-```
-
-## PRODUCT
+## Demo
 
 <p align="center">
 

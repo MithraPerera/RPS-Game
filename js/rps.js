@@ -1,3 +1,5 @@
+"use strict";
+
 //Computers choice between rock paper and scissors returned to game() function
 function computerPlay() {
 	let computersChoice = "";
@@ -48,7 +50,7 @@ function playRound(playerSelection, computerSelection) {
 //check if player won, lost or tied using the first part of the string
 //return int to game() function
 function checkWinner(roundResult) {
-	playerResult = roundResult.slice(0, 8);
+	let playerResult = roundResult.slice(0, 8);
 	console.log(playerResult);
 	if (playerResult == "You Win!") {
 		return 1;
@@ -61,45 +63,101 @@ function checkWinner(roundResult) {
 
 //Helper function to check 5 game winner, display results to console and end program
 function endGameResults(playerWinCount, tieGameCount) {
+	console.log("-------END GAME RESULTS-----------");
 	//check player win count to comp win count
 	if (playerWinCount > 5 - tieGameCount - playerWinCount) {
-		console.log("Congrats! You won the best of 5!");
+		message.textContent = "Congrats! You won the best of 5!";
 	} else if (playerWinCount < 5 - tieGameCount - playerWinCount) {
-		console.log("Sorry! The computer wins the best of 5!");
+		message.textContent = "Sorry you loose! Try Again!";
 	} else {
-		console.log("Wow its a best of 5 tie!");
+		message.textContent = "Wow its a best of 5 tie!";
+	}
+}
+
+function showPlayerPicks(playerChoice) {
+	const img = document.getElementById("player");
+	img.style.width = "50%";
+	img.style.height = "auto";
+	if (playerChoice === "ROCK") {
+		img.src = "/img/rock_button.png";
+	} else if (playerChoice === "PAPER") {
+		img.src = "/img/paper_button.png";
+	} else if (playerChoice === "SCISSORS") {
+		img.src = "/img/scissors_button.png";
+	}
+}
+
+function showCompPicks(computerSelection) {
+	const img = document.getElementById("comp");
+	img.style.width = "50%";
+	img.style.height = "auto";
+
+	if (computerSelection === "ROCK") {
+		img.src = "/img/rock_button.png";
+	} else if (computerSelection === "PAPER") {
+		img.src = "/img/paper_button.png";
+	} else if (computerSelection === "SCISSORS") {
+		img.src = "/img/scissors_button.png";
 	}
 }
 
 //Start a full 5 round game of RPS
-function game() {
-	console.log("Welcome to Rock, Paper Scissors!");
-	let playerWinCount = 0;
-	let tieGameCount = 0;
-	// for(let i=0; i < 5; i++) {
-	// let playerSelection = prompt(
-	// 	"Please type Rock, Paper or Scissors:"
-	// ).toUpperCase();
-	console.log("Player chooses: " + playerSelection);
+
+let message = document.querySelector(".message");
+let playerWinCount = 0;
+let tieGameCount = 0;
+let compWinCount = 0;
+let playerParent = document.querySelector(".playerpick");
+let compParent = document.querySelector(".comppick");
+
+document.querySelector("#rock-button").addEventListener("click", function () {
+	game("ROCK");
+});
+
+document.querySelector("#paper-button").addEventListener("click", function () {
+	game("PAPER");
+});
+
+document
+	.querySelector("#scissors-button")
+	.addEventListener("click", function () {
+		game("SCISSORS");
+	});
+
+function game(playerChoice) {
+	const playerScoreText = document.querySelector("#player-score");
+	const compScoreText = document.querySelector("#comp-score");
 	let computerSelection = computerPlay();
-	console.log("Computer chooses: " + computerSelection);
-	//store player win, loose or tie string for 1 round
-	let roundResult = playRound(playerSelection, computerSelection);
+	showPlayerPicks(playerChoice);
+	showCompPicks(computerSelection);
+	//store player win, loose or tie as a string for 1 round of play
+	let roundResult = playRound(playerChoice, computerSelection);
+	console.log(roundResult);
 	//check string and return an int to indicate win(1) loose(2) or tie(3)
 	let gameOption = checkWinner(roundResult);
-	//Increment game tracking count
-	//      if (gameOption == 1) {
-	//           playerWinCount++;
-	//      }
-	//      else if (gameOption == 2) {
-
-	//      } else {
-	//           tieGameCount++;
-	//      }
-	// }
-	//Display 5 round results passing the player win count and tie count
-	// endGameResults(playerWinCount, tieGameCount);
+	console.log(gameOption);
+	//Increment win or tie count
+	if (gameOption == 1) {
+		playerWinCount++;
+		playerScoreText.textContent = `🤑 Player : ${playerWinCount}`;
+		message.textContent = "Player Wins!";
+	} else if (gameOption == 2) {
+		compWinCount++;
+		compScoreText.textContent = `🤖 Computer : ${compWinCount}`;
+		message.textContent = "Computer Wins this time!";
+	} else {
+		tieGameCount++;
+		message.textContent = "Tie game!";
+	}
+	//Check game number
+	if (playerWinCount + compWinCount + tieGameCount === 5) {
+		endGameResults(playerWinCount, tieGameCount);
+		playerWinCount = 0;
+		tieGameCount = 0;
+		compWinCount = 0;
+		playerScoreText.textContent = `🤑 Player : ${playerWinCount}`;
+		compScoreText.textContent = `🤖 Computer : ${compWinCount}`;
+		document.getElementById("player").src = "/img/question.png";
+		document.getElementById("comp").src = "/img/question.png";
+	}
 }
-
-//Call game function to start the program
-game();
